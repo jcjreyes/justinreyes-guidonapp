@@ -1,0 +1,339 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+  /* background: #0a0a0a; */
+  /* background: red; */
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  font-family: 'Roboto', 'Chivo', 'Helvetica', sans-serif;
+  font-size: 15px;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.background,
+.background-color,
+.background-overlay {
+  z-index: 2;
+  overflow: hidden;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.background .background-color {
+  z-index: 1;
+  background-color: #1c4480;
+  background-size: cover;
+}
+
+.background-color {
+  transition: all 1s;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top left;
+  filter: blur(10px);
+}
+
+.background-overlay {
+  z-index: 2;
+  background-image: linear-gradient(
+    170deg,
+    rgba(10, 10, 10, 0.4) 0%,
+    #0a0a0a 60%,
+    #0a0a0a 100%
+  );
+}
+
+.header-links a,
+.card a p {
+  opacity: 0.5;
+  color: white;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.card a p {
+  font-size: 0.9em;
+}
+
+.header-links a {
+  font-family: 'Chivo', 'Roboto', 'Helvetica', sans-serif;
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9em;
+  opacity: 0.75;
+}
+
+.card a:hover p,
+.header-links a:hover {
+  opacity: 1;
+}
+
+.header-links a {
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.header-wrapper,
+.center-wrapper {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  padding-top: 3em;
+  padding-bottom: 3em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-links {
+  display: flex;
+  max-width: 20em;
+  width: 100%;
+  flex: 1;
+  justify-content: space-between;
+}
+
+header img {
+  height: auto;
+  max-width: 25em;
+}
+
+@media screen and (min-width: 0) and (max-width: 899px) {
+  .header-wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-box-orient: vertical;
+    -moz-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+
+  .header-links {
+    max-width: 15em;
+    padding-top: 0.5em;
+    transition: all 0.2s;
+  }
+}
+
+.main-gallery .center-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 0;
+}
+
+.card {
+  width: calc(33.3333333333% - 13.3333333333px);
+  padding-bottom: 2rem;
+  display: block;
+  flex-direction: column;
+  text-align: center;
+  transition: all 0.2s;
+  background-position: top center;
+  background-size: cover;
+}
+
+@media screen and (min-width: 1470px) and (max-width: 2089px) {
+  .card {
+    width: calc(25% - 15px);
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1469px) {
+  .card {
+    width: calc(33.33333% - 13.333px);
+  }
+}
+@media screen and (min-width: 620px) and (max-width: 999px) {
+  .card {
+    width: calc(50% - 10px);
+  }
+}
+@media screen and (min-width: 0) and (max-width: 619px) {
+  .card {
+    width: 100%;
+  }
+}
+.card .image-wrapper {
+  width: 100%;
+  padding-bottom: 50%;
+  display: block;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background-position: top center;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+  background-color: #1e1e1e;
+}
+
+.card a p {
+  padding-top: 0.5rem;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.selected img {
+  opacity: 0.4;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.detail-view {
+  display: none;
+  color: white;
+  transition: all 0.2s;
+}
+
+.detail-view img {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+.detail-view .center-wrapper {
+  padding-top: 0;
+}
+
+.detail-view .left {
+  flex-basis: calc(50% - 10px);
+  width: calc(50% - 10px);
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.detail-view .right {
+  flex-basis: calc(50% - 10px);
+  width: calc(50% - 10px);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#detail-title {
+  font-family: 'Merriwether', 'Tiempos Text', 'Garamond', serif;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+#detail-date {
+  opacity: 0.25;
+  text-transform: uppercase;
+  font-family: 'Chivo', 'Roboto', 'Helvetica', sans-serif;
+  font-weight: 300;
+  font-size: 0.9em;
+  margin-bottom: 0.1em;
+}
+
+#detail-authors {
+  opacity: 0.5;
+  margin-top: 0.1em;
+  font-size: 0.9em;
+}
+
+#detail-desc {
+  margin-top: 1em;
+  line-height: 1.75em;
+  font-size: 0.9em;
+}
+
+.more-title {
+  opacity: 1;
+  color: white;
+  text-align: center;
+}
+
+.detail-links {
+  display: flex;
+  margin-top: 1.5em;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#btn-fb,
+#btn-tw {
+  margin-right: 1.5em;
+  width: 1.5em;
+  height: 1.5em;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+}
+
+#btn-fb {
+  background-image: url(https://interactive.theguidon.com/img/assets/facebook.png);
+}
+
+#btn-tw {
+  background-image: url(https://interactive.theguidon.com/img/assets/twitter.png);
+}
+
+#btn-view {
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Roboto', 'Chivo', 'Helvetica', sans-serif;
+  font-weight: 700;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  line-height: 1em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -moz-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -moz-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 2.5em;
+  padding-left: 3em;
+  padding-right: 1em;
+  background-image: url(https://interactive.theguidon.com/img/assets/view.png);
+  background-repeat: no-repeat;
+  background-position: 0.8em center;
+  -webkit-background-size: 1.5em 1.5em;
+  -moz-background-size: 1.5em;
+  -o-background-size: 1.5em;
+  background-size: 1.5em;
+}
